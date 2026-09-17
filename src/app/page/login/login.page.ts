@@ -18,6 +18,8 @@ import {
   IonBadge,
   IonLabel
 } from '@ionic/angular/standalone';
+import { CardStatusComponent } from 'src/app/component/card-status/card-status.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +29,7 @@ import {
   imports: [
     CommonModule,
     FormsModule,
+    CardStatusComponent,
     IonContent,
     IonHeader,
     IonTitle,
@@ -45,7 +48,15 @@ import {
   ]
 })
 export class LoginPage implements OnInit {
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
+
+  irParaCadastro(){
+    this.router.navigate(['/cadastro'])
+  }
+
+  EntrarComId(idUsuario: number){
+    this.router.navigate(['/detalhes', idUsuario])
+  }
 }

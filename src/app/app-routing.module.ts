@@ -4,17 +4,25 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    loadComponent: () => import('./component/landing-page/landing-page.component').then(m => m.LandingPageComponent),
     pathMatch: 'full'
   },
   {
+    path:'landing-page',
+    loadComponent: () => import('./component/landing-page/landing-page.component').then(m => m.LandingPageComponent)
+  },
+  {
     path: 'login',
-    loadComponent: () => import('./page/login/login.page').then(m => m .LoginPage)
+    loadComponent: () => import('./page/login/login.page').then(m => m.LoginPage)
   },
   {
     path: 'cadastro',
     loadComponent: () => import('./page/cadastro/cadastro.page').then(m => m.CadastroPage)
   },
+  {
+    path: 'detalhes/:id',
+    loadComponent: () => import('./page/detalhes/detalhes.page').then(m => m.DetalhesPage)
+  }
 ];
 @NgModule({
   imports: [

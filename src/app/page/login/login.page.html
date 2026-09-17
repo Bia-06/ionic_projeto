@@ -4,7 +4,6 @@
     <ion-title>Portal Mobile</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <!-- Conteúdo Principal Rolável -->
 <!-- 💡 class="ion-padding": utilitário nativo Ionic que aplica espaçamento interno padrão mobile -->
 <!-- 💡 class="custom-background": classe customizada no SCSS para definir a cor de fundo -->
@@ -13,11 +12,11 @@
   <!-- 📌 POR QUE UMA DIV ENVOLVENDO O CARD? (login-container) -->
   <!-- Ela funciona como um wrapper de layout responsivo: limita a largura em 450px e centraliza a tela (margin: 0 auto) em tablets/desktops -->
   <div class="login-container">
-    
+
     <!-- 📌 POR QUE A HIERARQUIA DO CARD? -->
     <!-- ion-card agrupa visualmente o formulário. Ele engloba o ion-card-header (título/subtítulo) e o ion-card-content (inputs e botões) -->
     <ion-card class="login-card">
-      
+
       <ion-card-header>
         <ion-card-title>Acesso ao Sistema</ion-card-title>
         <ion-card-subtitle>Informe suas credenciais para continuar</ion-card-subtitle>
@@ -28,7 +27,8 @@
         <!-- ion-item alinha o campo com bordas e espaçamentos padrão de formulários Ionic -->
         <!-- 💡 SINTAXE IONIC 7+: label="..." e labelPlacement="stacked" ficam dentro do ion-input, eliminando a tag <ion-label> antiga -->
         <ion-item lines="full" class="custom-item">
-          <ion-input label="E-mail" labelPlacement="stacked" type="email" placeholder="seu.email@exemplo.com"></ion-input>
+          <ion-input label="E-mail" labelPlacement="stacked" type="email"
+            placeholder="seu.email@exemplo.com"></ion-input>
         </ion-item>
 
         <!-- Campo Senha com rótulo embutido -->
@@ -41,20 +41,32 @@
           Entrar
         </ion-button>
 
-        <ion-button expand="block" fill="outline" color="secondary" class="ion-margin-top">
+        <ion-button expand="block" fill="outline" color="secondary" class="ion-margin-top" (click)="irParaCadastro()">
           Criar Conta
         </ion-button>
       </ion-card-content>
     </ion-card>
+
     <ion-list>
       <ion-item>
         <ion-label>
           <h2>Status API</h2>
-          <p>BackEnd node/Express Ativa</p>
+          <p>BackEnd node/Express ativa</p>
         </ion-label>
         <ion-badge slot="end" color="success">Online</ion-badge>
       </ion-item>
     </ion-list>
+
+
+    <app-card-status 
+      corStatus="danger" 
+      titulo="conexão de dados"
+      subtitulo="Monitoramento de Api">
+    </app-card-status>
+
+    <ion-button expand="block" color="primary" class="ion-margin-top" (click)="EntrarComId(42)">
+      Entrar (42)
+    </ion-button>
 
   </div>
 </ion-content>
