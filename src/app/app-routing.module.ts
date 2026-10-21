@@ -22,6 +22,25 @@ const routes: Routes = [
   {
     path: 'detalhes/:id',
     loadComponent: () => import('./page/detalhes/detalhes.page').then(m => m.DetalhesPage)
+  },
+  {
+    path: 'tabs',
+    loadComponent: () => import('./page/tabs/tabs.page').then(m => m.TabsPage),
+    children: [
+      {
+        path: 'inicial',
+        loadComponent: () => import('./page/tabs/inicial/inicial.page').then(m => m.InicialPage)
+      },
+      {
+        path: 'perfil',
+        loadComponent: () => import('./page/tabs/perfil/perfil.page').then(m => m.PerfilPage)
+      },
+      {
+        path: '',
+        redirectTo: 'inicial',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 @NgModule({
